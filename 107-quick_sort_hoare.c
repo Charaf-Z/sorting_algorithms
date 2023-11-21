@@ -58,11 +58,10 @@ int partition(int *__array, size_t __size, int __start, int __end)
  */
 void sort(int *__array, size_t __size, int __start, int __end)
 {
-	if (__start >= __end)
-		return;
-
 	int boundary;
 
+	if (__start >= __end)
+		return;
 	boundary = partition(__array, __size, __start, __end);
 	sort(__array, __size, __start, boundary - 1);
 	sort(__array, __size, boundary, __end);

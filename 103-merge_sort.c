@@ -44,11 +44,10 @@ void merge(int *subarr, int *buff, size_t left, size_t middle,
  */
 void sort(int *subarr, int *buff, size_t left, size_t right)
 {
-	if (right - left < 2)
-		return;
-
 	size_t middle;
 
+	if (right - left < 2)
+		return;
 	middle = left + (right - left) / 2;
 	sort(subarr, buff, left, middle);
 	sort(subarr, buff, middle, right);

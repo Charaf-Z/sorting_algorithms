@@ -49,11 +49,11 @@ int partition(int *__array, size_t __size, int __start, int __end)
  */
 void lomuto_sort(int *__array, size_t __size, int __start, int __end)
 {
+	int boundary;
+
 	if (__start >= __end)
 		return;
-
-	int boundary = partition(__array, __size, __start, __end);
-
+	boundary = partition(__array, __size, __start, __end);
 	lomuto_sort(__array, __size, __start, boundary - 1);
 	lomuto_sort(__array, __size, boundary + 1, __end);
 }
