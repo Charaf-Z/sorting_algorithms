@@ -27,17 +27,18 @@ void shell_sort(int *array, size_t size)
 	int temp;
 
 	if (!array || size < 2)
-		return;
+	return;
 
 	for (gap = get_max_gap(size); gap; gap = (gap - 1) / 3)
 	{
 		for (i = gap; i < size; ++i)
 		{
 			temp = array[i];
-			for (j = i - gap; j && array[j] > temp; j -= gap)
-				array[j + gap] = array[j];
-			array[j + gap] = temp;
+			for (j = i; j > gap - 1 && array[j - gap] > temp; j -= gap)
+				array[j] = array[j - gap];
+			array[j] = temp;
 		}
 		print_array(array, size);
 	}
+
 }
